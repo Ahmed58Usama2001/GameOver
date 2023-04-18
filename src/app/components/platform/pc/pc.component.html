@@ -1,0 +1,39 @@
+<div *ngIf="loading ;else x" class="d-flex justify-content-center vh-100 align-items-center ">
+    <i class="fas fa-spin fa-spinner fa-5x"></i>
+</div>
+
+<ng-template #x>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 my-3 " *ngFor="let game of games"
+                [title]="game.platform == 'PC (Windows)' ? 'Available on Windows' : 'Available on Browser'"
+                [routerLink]="['/games',game.id]">
+                <img [src]="game.thumbnail" [alt]="game.title" class="w-100 ">
+
+                <div class="content  d-flex flex-column p-3">
+                    <div class=" d-flex justify-content-between align-items-center  ">
+                        <h4 class="game-info">{{game.title}}</h4>
+                        <span class="badge free-badge p-2 text-center">FREE</span>
+                    </div>
+                    <p class="game-info">{{game.short_description}}</p>
+                    <div class="d-flex justify-content-between align-items-center ">
+                        <i class="fa-solid fa-square-plus"></i>
+                        <div class="d-flex ">
+                            <span
+                                class="badge rounded-pill py-0 px-2 genre-badge  text-center mx-2">{{game.genre}}</span>
+                            <ng-container *ngIf="game.platform === 'PC (Windows)'; else otherPlatform">
+                                <i class="fa-brands fa-windows"></i>
+                            </ng-container>
+                            <ng-template #otherPlatform>
+                                <i class="fa-solid fa-window-maximize"></i>
+                            </ng-template>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</ng-template>

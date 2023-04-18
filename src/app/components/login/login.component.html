@@ -1,0 +1,39 @@
+<div class="m-auto shadow d-flex justify-content-center align-items-center w-85 vh-55 mt-5 ">
+    <div class="w-50 ">
+        <img src="./assets/gaming.ebaf2ffc84f4451d.jpg" class="w-100 vh-65" alt="">
+    </div>
+    <div class="register-form p-4 w-50 vh-65">
+        <div class="d-flex flex-column justify-content-center align-items-center">
+            <img src="./assets/logo.png" class="w-20" alt="GameOver Logo">
+            <h1 class="text-center">Login To GameOver</h1>
+        </div>
+        <form class="d-flex flex-column align-items-center" [formGroup]="loginForm" (ngSubmit)="loginData(loginForm)">
+
+
+            <input formControlName="email" type="email" placeholder="email" class="form-control  mt-3">
+            <div *ngIf="loginForm.get('email')?.errors && loginForm.get('email')?.touched"
+                class="alert alert-danger m-0 p-0" style="width: 95%;">
+                <h6 *ngIf="loginForm.get('email')?.getError('required')">name is Required</h6>
+            </div>
+
+
+            <input formControlName="password" type="password" placeholder="password" class="form-control  mt-3">
+            <div *ngIf="loginForm.get('password')?.errors && loginForm.get('password')?.touched"
+                class="alert alert-danger m-0 p-0" style="width: 95%;">
+                <h6 *ngIf="loginForm.get('password')?.getError('required')">name is Required</h6>
+            </div>
+
+            <button type="submit" [disabled]="loginForm.invalid" class="form-control btn mt-3">
+                <span *ngIf="!loading">Login</span>
+                <i *ngIf="loading" class="fas fa-spin fa-spinner"></i>
+            </button>
+        </form>
+
+        <hr>
+        <p class="text-center">Not a member yet <a routerLink="/register" style="color:#49ACFF">Create Account></a></p>
+
+        <div *ngIf="apiError" class="alert-danger alert">
+            <h3>{{apiError}}</h3>
+        </div>
+    </div>
+</div>

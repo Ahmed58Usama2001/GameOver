@@ -1,0 +1,67 @@
+<div class="m-auto shadow d-flex justify-content-center align-items-center w-85 vh-75 mt-5 p-2">
+    <div class="w-50 ">
+        <img src="./assets/gaming.ebaf2ffc84f4451d.jpg" class="w-100 vh-75" alt="">
+    </div>
+    <div class="register-form p-2 w-50 ">
+        <div class="d-flex flex-column justify-content-center align-items-center">
+            <h1 class="text-center">Create My Account</h1>
+        </div>
+        <form class="d-flex flex-column align-items-center" [formGroup]="registerForm"
+            (ngSubmit)="registerData(registerForm)">
+            <input formControlName="name" type="text" placeholder="name" class="form-control mt-3">
+            <div *ngIf="registerForm.get('name')?.errors && registerForm.get('name')?.touched"
+                class="alert alert-danger m-0 p-0" style="width: 95%;">
+                <h6 *ngIf="registerForm.get('name')?.getError('required')">name is Required</h6>
+                <h6 *ngIf="registerForm.get('name')?.getError('minlength')">minimum length is 3 letters</h6>
+                <h6 *ngIf="registerForm.get('name')?.getError('maxlength')">maximum length is 15 letters</h6>
+            </div>
+
+            <input formControlName="email" type="email" placeholder="email" class="form-control  mt-3">
+            <div *ngIf="registerForm.get('email')?.errors && registerForm.get('email')?.touched"
+                class="alert alert-danger m-0 p-0" style="width: 95%;">
+                <h6 *ngIf="registerForm.get('email')?.getError('required')">name is Required</h6>
+                <h6 *ngIf="registerForm.get('email')?.getError('pattern')">Invalid Email</h6>
+            </div>
+
+
+            <input formControlName="password" type="password" placeholder="password" class="form-control  mt-3">
+            <div *ngIf="registerForm.get('password')?.errors && registerForm.get('password')?.touched"
+                class="alert alert-danger m-0 p-0" style="width: 95%;">
+                <h6 *ngIf="registerForm.get('password')?.getError('required')">name is Required</h6>
+                <h6 *ngIf="registerForm.get('password')?.getError('pattern')">password must start with a capital letter
+                    and exceed 5 letters
+                </h6>
+            </div>
+
+            <input formControlName="rePassword" type="password" placeholder="repassword" class="form-control  mt-3">
+            <div *ngIf="registerForm.get('rePassword')?.errors && registerForm.get('rePassword')?.touched"
+                class="alert alert-danger m-0 p-0" style="width: 95%;">
+                <h6 *ngIf="registerForm.get('rePassword')?.getError('required')">name is Required</h6>
+                <h6 *ngIf="registerForm.get('rePassword')?.getError('passwordMatch')">password and repassword don't
+                    match</h6>
+            </div>
+
+            <input formControlName="phone" type="tel" placeholder="phone" class="form-control  mt-3">
+            <div *ngIf="registerForm.get('phone')?.errors && registerForm.get('phone')?.touched"
+                class="alert alert-danger m-0 p-0" style="width: 95%;">
+                <h6 *ngIf="registerForm.get('phone')?.getError('required')">name is Required</h6>
+                <h6 *ngIf="registerForm.get('phone')?.getError('pattern')">You have to enter an Egyptian number</h6>
+            </div>
+
+            <button type="submit" [disabled]="registerForm.invalid" class="form-control btn mt-3">
+                <span *ngIf="!loading">Create Account</span>
+                <i *ngIf="loading" class="fas fa-spin fa-spinner"></i>
+            </button>
+        </form>
+        <p class="text-center my-2">This site is protected by reCAPTCHA and the Google <a
+                href="https://policies.google.com/privacy" target="_blank">Privacy Policy</a> and <a
+                href="https://policies.google.com/terms" target="_blank">Terms
+                of Service</a> apply.</p>
+        <hr>
+        <p class="text-center">Already a member <a routerLink="/login" style="color:#49ACFF">Log In></a></p>
+
+        <div *ngIf="apiError" class="alert-danger alert">
+            <h3>{{apiError}}</h3>
+        </div>
+    </div>
+</div>

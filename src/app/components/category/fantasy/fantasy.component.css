@@ -1,0 +1,40 @@
+.content {
+    background-color: #32383E;
+}
+
+
+.free-badge {
+    background-color: #4799EB;
+}
+
+.fa-spin {
+    color: #4799EB;
+}
+
+.col-md-3 {
+    cursor: pointer;
+    transition: transform 0.3s;
+
+}
+
+.col-md-3:hover {
+    transform: scale(1.05, 1.05);
+}
+
+p {
+    color:
+        rgb(122, 130, 136);
+}
+
+.game-info {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.genre-badge {
+    background-color: #7A8288;
+    color: #272B30;
+
+    font-weight: bold !important;
+}

@@ -1,0 +1,43 @@
+img {
+    width: 15%;
+}
+
+.nav-brand {
+
+
+    font-style: italic;
+    font-family: "Xanh Mono", monospace;
+}
+
+
+.nav-brand a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.nav-link {
+    color: #AAAAAA;
+}
+
+.nav-link:hover {
+    color: #ffffff;
+}
+
+.nav-link:focus {
+    color: #ffffff;
+}
+
+.btn-border {
+    border: solid 1px rgb(73, 153, 233);
+    color: rgb(73, 153, 233);
+    border-radius: 5px;
+}
+
+.btn-border:hover {
+    border: solid 1px rgb(73, 153, 233);
+    color: rgb(73, 153, 233);
+}
+
+.logout {
+    cursor: pointer;
+}

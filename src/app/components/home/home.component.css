@@ -1,0 +1,57 @@
+.bg-cover {
+    background-image: url('../../../assets/paladins.b44d33d6e7ee1ba8.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.vh-30 {
+    height: 30vh;
+}
+
+.fs-20px {
+    font-size: 20px;
+    line-height: 30px;
+    font-weight: 300;
+}
+
+.browse-btn {
+    display: block;
+    color:
+        rgb(108, 117, 125);
+
+    border: 0.7px rgb(108, 117, 125) solid;
+    transition: color 0.4s, background-color 0.4s;
+}
+
+.browse-btn:hover {
+    background-color:
+        rgb(170, 170, 170);
+
+    color: white;
+}
+
+.overlay {
+    background-color: #1C1E22;
+}
+
+.content {
+    background-color: #32383E;
+}
+
+
+.badge {
+    background-color: #4799EB;
+}
+
+.fa-spin {
+    color: #4799EB;
+}
+
+.col-md-4 {
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.col-md-4:hover {
+    transform: scale(1.05, 1.05);
+}

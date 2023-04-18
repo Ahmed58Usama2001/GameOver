@@ -1,0 +1,93 @@
+<div *ngIf="loading ;else x" class="d-flex justify-content-center vh-100 align-items-center ">
+    <i class="fas fa-spin fa-spinner fa-5x"></i>
+</div>
+
+<ng-template #x>
+
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-md-4">
+                <img [src]="gameData?.thumbnail" [alt]="gameData?.title" class="w-100">
+                <div class="d-flex justify-content-between align-items-center my-3">
+                    <span class="badge ">FREE</span>
+                    <a class="play rounded text-decoration-none p-2 w-80 text-center fw-bold" target="_blank" [href]="gameData?.freetogame_profile_url
+                    ">PLAY NOW <i class="fa-solid fa-right-to-bracket"></i></a>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <h1>{{gameData?.title}}</h1>
+                <h5>About {{gameData?.title}}</h5>
+                <p class="game-description">{{gameData?.description}}</p>
+                <h5>Minimum System Requirements</h5>
+                <ul class="list-unstyled">
+                    <li class="my-3"><strong>Graphics : </strong>{{gameData?.minimum_system_requirements?.graphics}}
+                    </li>
+                    <li class="my-3"><strong>Memory : </strong>{{gameData?.minimum_system_requirements?.memory}}
+                    </li>
+                    <li class="my-3"><strong>OS : </strong>{{gameData?.minimum_system_requirements?.os}}
+                    </li>
+                    <li class="my-3"><strong>Processor : </strong>{{gameData?.minimum_system_requirements?.processor}}
+                    </li>
+                    <li class="my-3"><strong>Storage : </strong>{{gameData?.minimum_system_requirements?.storage}}
+                    </li>
+                </ul>
+                <h4>{{gameData?.title}} Screenshots</h4>
+                <owl-carousel-o [options]="customOptions">
+                    <ng-template carouselSlide *ngFor="let Screenshot of gameData?.screenshots">
+                        <img [src]="Screenshot?.image" class="w-100">
+                    </ng-template>
+
+                </owl-carousel-o>
+                <h2>
+                    Additional Information
+                </h2>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="d-flex flex-column">
+                            <span class="details">Title</span>
+                            <p>{{gameData?.title}}</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="d-flex flex-column">
+                            <span class="details">Developer</span>
+                            <p>{{gameData?.developer}}</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="d-flex flex-column">
+                            <span class="details">Publisher</span>
+                            <p>{{gameData?.publisher}}</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="d-flex flex-column">
+                            <span class="details">Release date</span>
+                            <p>{{gameData?.release_date}}</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="d-flex flex-column">
+                            <span class="details">Genre</span>
+                            <p>{{gameData?.genre}}</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="d-flex flex-column">
+                            <span class="details">Platform</span>
+                            <p> <ng-container *ngIf="gameData?.platform === 'Windows'; else otherPlatform">
+                                    <i class="fa-brands fa-windows"></i>
+                                </ng-container>
+                                <ng-template #otherPlatform>
+                                    <i class="fa-solid fa-window-maximize"></i>
+                                </ng-template>
+                                {{gameData?.platform}}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</ng-template>

@@ -1,0 +1,30 @@
+.play {
+    background-color: #479AEC;
+    color: white;
+}
+
+.badge {
+    background-color: #32383E;
+    color: rgb(170, 170, 170);
+    font-size: 16px;
+    padding: 12px;
+}
+
+.w-80 {
+    width: 80%;
+}
+
+.game-description {
+    font-size: 20px;
+    line-height: 30px;
+}
+
+.details {
+    font-size: 16px;
+    color:
+        #6c757d;
+}
+
+.fa-spin {
+    color: #4799EB;
+}

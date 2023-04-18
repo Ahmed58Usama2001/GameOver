@@ -1,0 +1,30 @@
+<div class=" d-flex justify-content-center overlay">
+    <div class="d-flex justify-content-center align-items-center flex-column bg-cover vh-30 p-4">
+
+        <h1>Find & track the best<span style="color: #49ACFF;"> free-to-play </span>games!</h1>
+        <p style="color: rgb(108, 117, 125);" class="fs-20px">Track what you've played and search for what to play next!
+            Plus get free
+            premium loot!</p>
+        <a class="text-decoration-none browse-btn p-2 rounded" routerLink="/all">Browse Games</a>
+    </div>
+</div>
+
+<div class="container py-5">
+    <h3>
+        <i class="fa-solid fa-robot"></i>
+        Personalized Recommendations
+    </h3>
+
+    <div class="d-flex justify-content-center my-4">
+        <i *ngIf="loading" class="fas fa-spin fa-spinner fa-5x"></i>
+    </div>
+    <div class="row ">
+        <div class="col-md-4 rounded shadow" *ngFor="let item of mostPopular3" [routerLink]="['/games',item.id]">
+            <img [src]="item.thumbnail" [alt]="item.title" class="w-100">
+            <div class="content d-flex justify-content-between align-items-center p-3 ">
+                <h4>{{item.title}}</h4>
+                <span class="badge p-2 text-center">FREE</span>
+            </div>
+        </div>
+    </div>
+</div>
